@@ -36,7 +36,7 @@
    </head>
    <body>
     <div class="content">
-<h1>The Ultimate Guide to OPSEC: Paranoid Edition v1.0</h1>
+<h1>The Ultimate Guide to OPSEC: Paranoid Edition v1.1</h1>
 <h2>Listen, whether you're an activist, journalist, or just someone who's had it with the constant surveillance, I dont give a fuck, this guide is just for you. From stylometry analysis to encrypted shit and other, you'll learn on how to keep your operational security (opsec).</h2>
 <h2>Threat Model: Who's Out to Get You? </h2>
 Before you start with this guide, you've got to understand what you're trying to hide from, what you're protecting maybe butthole pics? or your private convos with hoes on discord? who's trying to fuck with you, and what happens if they catch your ass.
@@ -57,6 +57,25 @@ Creating a new identity isn't about mixing together random fake details it's bou
 To fill the gaps, use a tool like <a href="https://www.fakepersongenerator.com/" target="_blank">Fake Person Generator</a> for a full set of details. For photos, skip the stock images and dive into AI tools like Stable Diffusion or, if you don't mind spending a bit, use midjourney.
  
 Be sure theres no overlap between your real and fake identities. Be meticulous about avoiding any habits, patterns, or details that could link the two together.
+<h2>Behavioral-Biometric Profiling</h2>
+When you're attempting to remain anonymous online or manage multiple identities, it's important to be cautious not only about what you type but how you type. Even with tor, your anonymity can be compromised through behavioral-biometric profiling.
+<h2>What is Behavioral-Biometric Profiling?</h2>
+Behavioral-biometric profiling is a technique used to identify individuals by analyzing their typing patterns, particularly the intervals between keystrokes. Research has shown that the timing between key presses and the duration of each press are unique to each person. Algorithms require only a few minutes of data to confirm that the same person is typing, even if they switch browsers, IP addresses, or websites. This method poses a significant threat to the anonymity of tor users.
+
+The danger increases when typing profiles are aggregated across multiple websites. This allows for cross-referencing and correlating user identities, effectively linking different usernames or accounts to the same person. It's not just website operators who may be collecting this data, some js often embedded by ad networks, can also capture typing patterns.
+
+Some banks already employ this technology to detect compromised accounts. Historically, similar techniques were used during WW II, when the British profiled German telegraph operators based on their unique transmission styles.
+
+How to limit the profiling of typing
+If you're concerned about being identified through your typing style, consider the following strategies:
+
+Write in a text editor: Compose your text offline in a program like notepad, then copy and paste it into the browser. This prevents websites from recording your keystrokes. When this method is used by a large number of people, it becomes more challenging to profile individuals.
+
+Use browser extensions: Some extensions are designed to mitigate typing pattern tracking by randomizing or obfuscating keystroke timings. However, be cautious with extensions, especially on browsers like Chrome, as websites could potentially disable or bypass them.
+
+Disable JavaScript: This is a more extreme but effective measure. Without JavaScript enabled, websites can't run scripts that collect typing patterns. Keep in mind, though, that future profiling techniques could emerge that bypass the need for JavaScript.
+
+By staying aware of behavioral-biometric profiling and adopting these strategies, you can significantly reduce the risk of being de-anonymized, even when faced with advanced tracking techniques.
 <h2>Locking Down Social Media: Minimizing Digital Footprints </h2>
 Let's be honest completely avoiding social media is impossible unless you're living in a forest. But you can still minimize the mess.
 
@@ -71,7 +90,26 @@ Let's be honest completely avoiding social media is impossible unless you're liv
 - Enable 2FA on every account that you have, you can use apps like FreeOTP or Aegis.
 - If possible use different usernames in every place, this will make it impossible for tools like whatsmyname.app to find accounts on other platforms.
 - Always use strong, unique passwords, avoid using easily guessable information like birthdays or common words.
+<h2>Passwords</h2>
+If you're using the same password across multiple platforms, keep in mind that it makes it easier to cross reference your identity. This is why it's essential to use a unique password for every account. Password managers like KeePassXC can help you easily generate and store strong, unique passwords for additional security you should use whonix without the connection to internet, also you can generate strong passwords using commands like pwgen or methods like diceware.
+<h2>Anonymous payments</h2>
+For payments, monero is one of the most secure options due to its privacy features that hide the sender, receiver, and transaction amount. Here are some methods how to buy monero anonymously:
 
+Option 1: Use a p2p exchange like BitValve, HodlHodl, or LocalCoinSwap to buy cryptocurrencies without KYC. Once you have the transparent cryptocurrency for exapmle litecoin or btc, use trocador to exchange it for Monero, sending the funds to your own wallet.
+
+Option 2: Purchase Monero directly through decentralized exchanges like Haveno or Bisq. These platforms doesn't require KYC. You can buy Monero directly from sellers and withdraw it to your own wallet. Using decentralized exchanges ensures greater privacy and control over your funds without the need to trust a third party intermediary.
+
+Ensure that you always send the funds to your personal monero wallet, ideally one that is self-hosted on a secure machine, such as a hardware wallet or a wallet on an air gapped device.
+
+For additional layers of anonymity, avoid using personal devices. Consider using a separate, clean device for sensitive transactions and financial activities, like a dedicated laptop with whonix + qubes.
+
+When shopping online, try to use anonymous marketplaces where Monero is accepted. You can also use torcador for buying a prepaidcards with monero.
+<h2>When using Monero, there are three main methods for connecting to the network, each with different security and convenience levels</h2>
+Remote Node (Using Whonix): This is the most convenient option, offering decent security if used with Whonix to prevent exposing your IP address. You can use this <a href="https://monero.fail" target="_blank">site</a> for finding nodes. However, there are still risks involved, for example <a href="https://www.youtube.com/watch?v=n6Bxp0k7Uqg" target="_blank">this</a>, and<a href="https://moonstoneresearch.com/2023/11/03/Postmortem-of-Monero-CCS-Hack.html" target="_blank">this</a>
+
+Local Node: Theoretically the most secure, but it requires downloading the entire Monero blockchain - hundreds of gigabytes to your computer. Doing this over Tor is nearly impossible, and downloading without Tor exposes you to external observers who could infer you're using Monero. Additionally, each time you relaunch the local node after downtime, it must resynchronize, which takes time. Ideally, the node should run 24/7, though this conflicts with powering down your machine and using disk encryption.
+
+VPS Hosted Node: This involves running a Monero node on a VPS connected via the clearnet. The VPS maintains the blockchain and interacts with the Monero network, while you access it through an onion service for additional privacy.
 <h2>Web Browsing: Keep Your Privacy Intact </h2>
 Mainstream browsers like Chrome and Opera collect a significant amount of user data. Switching to privacy focused browsers like Brave or LibreWolf.
 
@@ -103,9 +141,9 @@ First, don't use an iPhone.
 
 Second, while roms like LineageOS might look privacy sexy, they actually weaken your anonymity. Simple example, you can't re-lock the bootloader once it's unlocked, leaving your phone vulnerable to forensic tools that can extract everything.
 
-The best solution is GrapheneOS, but it only works on newer Google Pixel devices (Pixel 6 and up). These phones are your best shot at resisting forensic tools like Cellebrite. If you're on a budget, pick up a used Pixel - but never use an old SIM card in it.
+GrapheneOS is the best option but only limited for those with Pixel 6 or newer pixels. These phones are best for resisting forensic tools like Cellebrite. If you're on a budget, pick up a used Pixel - but never use an old SIM card in it. 
 
-For other devices use DivestOS. It's not good as graphene, but it's miles better than the bloated stock OS most phones come with.
+If you're forced to use any other device then DivestOS. It's not good as graphene, but it's miles better than the bloated stock OS most phones come with.
 
 <h2>Secure Communicators and Emails: Protecting Your Conversations </h2>
 Use apps like Signal, or even better, go with <a href="https://molly.im/" target="_blank">Molly.im</a>, Session, or XMPP with onion domains and OTR/OMEMO encryption. These offer far stronger privacy protections than mainstream messaging services. If you're still using Gmail, Outlook, or any of those mainstream platforms, just stop—they're privacy disasters waiting to happen. Instead, look into privacy-focused alternatives like cock.li, morke.org, or TorBox for email.
@@ -113,9 +151,21 @@ Use apps like Signal, or even better, go with <a href="https://molly.im/" target
 And don't forget: PGP is your friend. Learn it, use it, live it.
 
 Also, get rid off pseudo "anonymous" services, do you remember apps like Anom, Encrochat, or Phantom Secure? These were nothing more than honeytraps designed to catch users, often backed by law enforcement agencies. If a service promises "perfect privacy" or seems too polished, it's probably compromised, run by cops, or soon will be. Trust privacy solutions that focus on open-source, decentralized systems and have a track record of resisting governmental control.
+<h2>VPNs: Securing Your Connection, But Don't Trust Blindly</h2>
+VPNs are often marketed as the ultimate privacy tool, but lets be honest they mostly sucks and its just marketing, a vpn routes your internet traffic through an encrypted tunnel, but your vpn provider still sees everything unless they have a strict no-logs policy and even then, how sure are you that they're not keeping logs?
 
+Here's how to pick a maybe good one.
+No-logs policy: This should be must have, some vpns claim to keep no logs, but you can't trust them.
+Payment with monero: If they don't accept monero, it's a red flag, you need to be able to pay anonymously.
+Avoid free vpns: They're more likely to sell your data than protect it.
+
+The mullvad vpn looks like a decent choice.
+
+To increase privacy when using a VPN, it's best to set up your own, ideally in a country like Russia, where the laws will be less like to work with other govs, this ensures you control the server and can configure it as securely as needed.
+
+Remember: your ISP might not see what you're doing, but they know you're using a VPN. If you're serious about your anonymity, assume that the vpn is a piece of shit. You can use vpns for daily usage - surfing the internet, but when it comes to serious anonymity just dont use them.
 <h2>Tor / I2P </h2>
-You gotta use Tor or I2P if you're serious about staying anonymous. But let's be real - they're not magic. Timing attacks are a thing: even if you're doing everything by the book, if your enemy controls enough nodes on the network, they can track your activity - for example at what time you're online on some forum and other things. Also, remember bouta malicious relays, FBI have been known to set up their own nodes within the network to spy on users. You can't just trust the network blindly. Always be on guard for exploits, too disabling JavaScript in your browser settings is must have.
+You gotta use Tor or I2P if you're serious about staying anonymous. But let's be real - they're not magic. Timing attacks are a thing: even if you're doing everything by the book, if your enemy controls enough nodes on the network, they can track your activity - for example at what time you're online on some forum and other things. Also, remember bouta malicious relays, FBI have been known to set up their own nodes within the network to spy on users. You can't just trust the network blindly. Disabled javascript is must have.
 <h2>How Photo Metadata and Digital Signatures Affect Privacy: EXIF Data, Noise, and Quantization Tables </h2>
 - EXIF Data
 EXIF (Exchangeable Image File Format) is embedded in images (but not only limited to) and includes information like the type of camera used, sometimes even GPS coordinates and much more. You need to exif the data before posting the image somewhere.
